@@ -1,12 +1,9 @@
 import "./home.css";
 import * as React from "react";
-import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import ListItemText from "@mui/material/ListItemText";
 import Select from "@mui/material/Select";
-import Checkbox from "@mui/material/Checkbox";
 
 function Home() {
   const [age, setAge] = React.useState("");
@@ -27,8 +24,13 @@ function Home() {
             placeholder="What you are looking for?"
             className=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.5"
           />
-          <FormControl sx={{ m: 0, minWidth: 180 }}>
-            <InputLabel id="demo-simple-select-autowidth-label">Area</InputLabel>
+          <FormControl
+            sx={{ m: 0, minWidth: 200 }}
+            className="bg-white rounded-md"
+          >
+            <InputLabel id="demo-simple-select-autowidth-label">
+              Area
+            </InputLabel>
             <Select
               labelId="demo-simple-select-autowidth-label"
               id="demo-simple-select-autowidth"
