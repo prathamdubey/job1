@@ -1,0 +1,6 @@
+.back-img{
+    background-image:  -webkit-linear-gradient(0deg, rgb(191, 172, 255, 0.88) 0%, rgb(121, 95, 255, 0.88) 100%)
+    , url("/src/assets/header-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

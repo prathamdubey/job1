@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Barlow";
+    font-weight: 400;
+    src: local("Barlow-Regular"),
+      url(./assets/Fonts/Barlow-Regular.ttf) format("truetype");
+  }
