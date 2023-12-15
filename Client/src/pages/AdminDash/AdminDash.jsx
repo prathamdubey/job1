@@ -21,10 +21,13 @@ function AdminDash() {
     e.preventDefault();
     console.log("Form Data:", formData);
   };
+
   return (
-    <div class="">
-      <div class="fixed "><SideNav /></div>
-      <div className="container flex ml-64 mx-auto ">
+    <div className="flex">
+      <div className="fixed w-64">
+        <SideNav />
+      </div>
+      <div className="flex-1 ml-64 mx-auto mt-20">
         <form
           onSubmit={handleSubmit}
           className="max-w-lg mx-auto p-6 bg-white rounded shadow-md"
