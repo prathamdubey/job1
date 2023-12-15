@@ -4,7 +4,7 @@ const UserDetailsSchema = new mongoose.Schema({
   name: String,
   email: String,
   password: String,
-  userType: String
+  isAdmin: {type:Boolean, default:false},
 });
 
 const UserDetailModel = mongoose.model("userdetails", UserDetailsSchema);

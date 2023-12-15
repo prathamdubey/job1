@@ -13,9 +13,15 @@ mongoose.connect(
 );
 
 app.post("/login", (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, isAdmin } = req.body;
   UserDetailModel.findOne({ email: email  }).then((user) => {
     if (user) {
+      
+      if(user.isAdmin === true){
+        res.json("access");
+      } else{
+        res.json("Not an admin")
+      }
       if (user.password === password) {
         res.json("Success");
       } else {
