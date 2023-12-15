@@ -15,6 +15,8 @@ function Admin() {
         console.log(result);
         if (result.data === "access") {
           navigate("/AdminDash");
+        }else if(result.data === "success"){
+          navigate("/Home");
         }
       })
       .catch((err) => console.log(err));

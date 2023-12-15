@@ -14,8 +14,10 @@ function Login() {
       .post("http://localhost:3001/login", { email, password })
       .then((result) => {
         console.log(result);
-        if (result.data === "Success") {
-          navigate("/home");
+        if (result.data === "access") {
+          navigate("/AdminDash");
+        }else if(result.data === "success"){
+          navigate("/Home");
         }
       })
       .catch((err) => console.log(err));
