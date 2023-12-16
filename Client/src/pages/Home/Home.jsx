@@ -79,7 +79,7 @@ function Home() {
             sx={{ width: 300, fontSize: "25px", border: "none", }}
             freeSolo
             renderInput={(params) => (
-              <TextField {...params} label="Hello world" InputLabelProps={{ shrink:true, disabled: false, }}  sx={{padding: 0,background: "white", borderRadius:2 }} />
+              <TextField {...params} label="Search"   sx={{padding: 0,background: "white", borderRadius:2 }} />
             )}
           />
 

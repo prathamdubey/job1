@@ -1,0 +1,47 @@
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const multer = require("multer")
+const path = require("path")
+const JoblistModel = require('./models/joblist')
+
+
+
+
+const app = express();
+app.use(express.json());
+app.use(cors());
+
+
+
+mongoose.connect('mongodb+srv://dubeypratham11:sunita123@cluster0.zxcxa1q.mongodb.net/joblist')
+
+
+const upload = multer({
+    storage: storage
+  })
+  
+  const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, 'public/images')
+    }, 
+    filename: (req, res, cb) => {
+      cb(null, file.fieldname = "_" + Date.now() + path.extname(file.originalname))
+    }
+  })
+  app.post('/upload', upload.single('file'), (req, res) =>{
+    JoblistModel.create({image: req.file.filename})
+    .then(result => res.json(result))
+    .catch(err => console.log(err))
+  })
+  
+  .then(() => {
+    console.log("Joblist connected successfully");
+  })
+  .catch((err) => {
+    console.error("Joblist connection error:", err);
+  });
+
+  app.listen(3002, () => {
+    console.log("Server is running on port 3002");
+  });

@@ -15,7 +15,7 @@ function Login() {
       .then((result) => {
         console.log(result);
         if (result.data === "access") {
-          navigate("/AdminDash");
+          navigate("/AdminHome");
         }else if(result.data === "success"){
           navigate("/Home");
         }

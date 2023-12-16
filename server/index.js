@@ -1,6 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const multer = require("multer");
+const path = require("path");
+
 
 const UserDetailModel = require("./models/userdetails");
 
@@ -8,16 +11,28 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect("mongodb+srv://MetalTroop:Metal1234@cluster0.xjzih57.mongodb.net/userdetails", {
+
+mongoose.connect("mongodb+srv://dubeypratham11:sunita123@cluster0.zxcxa1q.mongodb.net/userdetails", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
+
+
+
+
   .then(() => {
     console.log("MongoDB connected successfully");
   })
   .catch((err) => {
     console.error("MongoDB connection error:", err);
   });
+
+  app.get('/getUsers', (req, res) => {
+    UserDetailModel.find()
+    .then(users => res.json(users))
+    .catch(err => res.json(err))
+  })
+  
 
 app.post("/login", (req, res) => {
   const { email, password, isAdmin } = req.body;
