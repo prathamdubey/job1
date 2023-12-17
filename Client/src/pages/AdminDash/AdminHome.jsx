@@ -1,18 +1,30 @@
-
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
-import { Component } from 'react';
 import {Link , Outlet} from 'react-router-dom'
 
-function SideNav() {
 
-  const CheckLoginStatus= (e) => {
-    e.preventDefault();
+function SideNav() {
+  const navigate = useNavigate();
+
+  
+
+  
+  const handleSubmit = () => {
     axios
-    .get("http://localhost:3001/login", {withCredentials: true}) 
-    .then(Response => {
-      console.log('logged in', response);
-    }).catch((err) => console.log(err));
-  }
+      .post("http://localhost:3001/AdminDash")
+      .then((result) => {
+        console.log(result);
+        if (result.data === "access") {
+          navigate("/AdminHome");
+          console.log(result);
+        }else if(result.data === "denied"){
+          navigate("/Home");
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+ handleSubmit
+
   return (
     <div>
       <nav className="flex flex-col  items-center h-screen w-60  bg-gray-600 p-5  fixed">
